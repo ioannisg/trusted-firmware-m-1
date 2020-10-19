@@ -28,12 +28,6 @@ mcuboot:
     commit: 50d24a57516f558dac72bef634723b60c5cfb46b
     license: Apache 2.0
 
-mbed-crypto:
-    repo: https://github.com/ARMmbed/mbed-crypto.git
-    tag: 3.0.1
-    commit: 1146b4e06011b69a6437e6b728f2af043a06ec19
-    license: Apache 2.0
-
 psa-arch-tests:
     repo: https://github.com/ARM-software/psa-arch-tests
     tag: v20.03_API1.0

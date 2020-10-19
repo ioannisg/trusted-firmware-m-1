@@ -109,8 +109,8 @@ function(trusted_firmware_build)
   )
 
   # IPC mode source dependencies
-  add_library(tfm_ipc_psa_api STATIC IMPORTED)
-  set_target_properties(tfm_ipc_psa_api PROPERTIES
+  add_library(tfm__api STATIC IMPORTED)
+  set_target_properties(tfm_api PROPERTIES
     IMPORTED_LOCATION ${PSA_API_NS_PATH}
   )
 
@@ -119,13 +119,13 @@ function(trusted_firmware_build)
     IMPORTED_LOCATION ${VENEERS_FILE}
   )
 
-  add_dependencies(tfm_ipc_psa_api tfm)
+  add_dependencies(tfm_api tfm)
   file(MAKE_DIRECTORY ${TFM_BINARY_DIR}/generated/interface/include)
-  target_include_directories(tfm_ipc_psa_api INTERFACE
+  target_include_directories(tfm_api INTERFACE
     ${ZEPHYR_TFM_MODULE_DIR}/trusted-firmware-m/interface/include
     ${TFM_BINARY_DIR}/generated/interface/include
   )
 
-  target_link_libraries(tfm_ipc_psa_api INTERFACE zephyr_interface veneer_lib)
+  target_link_libraries(tfm_api INTERFACE zephyr_interface veneer_lib)
 
 endfunction()
